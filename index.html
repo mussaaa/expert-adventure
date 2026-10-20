@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Data Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">People Operations</p>
+          <h1>Employee Data Dashboard</h1>
+        </div>
+        <button id="exportBtn" class="export-btn">Export CSV</button>
+      </header>
+
+      <section class="toolbar" aria-label="Employee filters">
+        <div class="field-group search-field">
+          <label for="searchInput">Search employee</label>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Name, email, department..."
+            aria-label="Search employees"
+          />
+        </div>
+
+        <div class="field-group">
+          <label for="departmentFilter">Department</label>
+          <select id="departmentFilter" aria-label="Filter by department">
+            <option value="All">All departments</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="statusFilter">Status</label>
+          <select id="statusFilter" aria-label="Filter by employment status">
+            <option value="All">All statuses</option>
+            <option value="Active">Active</option>
+            <option value="On Leave">On Leave</option>
+            <option value="Contractor">Contractor</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="kpis" aria-label="Employee summary statistics">
+        <article class="kpi-card accent-blue">
+          <span class="kpi-label">Total Employees</span>
+          <strong id="totalEmployees">0</strong>
+        </article>
+        <article class="kpi-card accent-green">
+          <span class="kpi-label">Active</span>
+          <strong id="activeEmployees">0</strong>
+        </article>
+        <article class="kpi-card accent-orange">
+          <span class="kpi-label">Avg. Salary</span>
+          <strong id="avgSalary">$0</strong>
+        </article>
+        <article class="kpi-card accent-purple">
+          <span class="kpi-label">Remote</span>
+          <strong id="remoteEmployees">0</strong>
+        </article>
+      </section>
+
+      <section class="table-panel">
+        <div class="panel-header">
+          <h2>Employee Directory</h2>
+          <span id="resultCount" class="result-count">0 results</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Role</th>
+                <th>Location</th>
+                <th>Manager</th>
+                <th>Status</th>
+                <th>Hire Date</th>
+                <th>Years</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody id="employeeTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
